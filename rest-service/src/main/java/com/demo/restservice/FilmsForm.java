@@ -16,13 +16,13 @@ public class Films {
     private final String producer;
     private final long release_date;
     private final int rt_score;
-    private final String people;
-    private final String species;
-    private final String locations;
-    private final String url;
+//    private final String people;
+//    private final String species;
+//    private final String locations;
+//    private final String url;
 
-    public Films(long id, String title, String description, String director, String producer, long release_date,
-                 int rt_score, String people, String species, String locations, String url) {
+    public Films(long id, String title, String description, String director, String producer, long release_date, int rt_score) {
+            //, String people, String species, String locations, String url) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -30,11 +30,10 @@ public class Films {
         this.producer = producer;
         this.release_date = release_date;
         this.rt_score = rt_score;
-        this.people = people;
-        this.species = species;
-        this.locations = locations;
-        this.url = url;
-
+//        this.people = people;
+//        this.species = species;
+//        this.locations = locations;
+//        this.url = url;
     }
 
 }
