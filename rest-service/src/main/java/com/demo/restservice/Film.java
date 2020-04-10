@@ -14,13 +14,16 @@ import javax.persistence.Id;
  */
 
 
-@Entity
+
 @Getter
 @Setter
-public class Films {
+@Entity
+public class Film {
 
     @Id
+    // @Id signifies id is primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     // Final variable throws "might not have been initialized error
     private long id;
     private String title;
@@ -33,5 +36,8 @@ public class Films {
 //    private final String species;
 //    private final String locations;
 //    private final String url;
+
+
+    // Need constructor for JPA entity?
 }
 
