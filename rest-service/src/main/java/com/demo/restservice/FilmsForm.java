@@ -8,7 +8,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Films {
+public class FilmsForm {
     private final long id;
     private final String title;
     private final String description;
@@ -21,7 +21,7 @@ public class Films {
 //    private final String locations;
 //    private final String url;
 
-    public Films(long id, String title, String description, String director, String producer, long release_date, int rt_score) {
+    public FilmsForm(long id, String title, String description, String director, String producer, long release_date, int rt_score) {
             //, String people, String species, String locations, String url) {
         this.id = id;
         this.title = title;
