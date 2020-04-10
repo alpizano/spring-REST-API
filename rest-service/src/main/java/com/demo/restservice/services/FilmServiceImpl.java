@@ -1,5 +1,8 @@
-package com.demo.restservice;
+package com.demo.restservice.services;
 
+import com.demo.restservice.domain.Film;
+import com.demo.restservice.FilmFormToFilm;
+import com.demo.restservice.repositories.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

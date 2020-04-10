@@ -1,4 +1,4 @@
-package com.demo.restservice;
+package com.demo.restservice.domain;
 
 import lombok.Getter;
 import lombok.Setter;

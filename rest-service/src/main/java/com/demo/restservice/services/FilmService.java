@@ -1,4 +1,6 @@
-package com.demo.restservice;
+package com.demo.restservice.services;
+
+import com.demo.restservice.domain.Film;
 
 import java.util.List;
 

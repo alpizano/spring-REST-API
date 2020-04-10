@@ -1,10 +1,12 @@
-package com.demo.restservice;
+package com.demo.restservice.controllers;
 
+import com.demo.restservice.domain.Film;
+import com.demo.restservice.services.FilmService;
+import com.demo.restservice.FilmToFilmForm;
+import com.demo.restservice.repositories.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;

@@ -1,5 +1,6 @@
 package com.demo.restservice;
 
+import com.demo.restservice.domain.Film;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
