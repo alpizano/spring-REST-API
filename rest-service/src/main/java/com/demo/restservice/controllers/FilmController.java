@@ -51,4 +51,9 @@ public class FilmController {
     public void insertFilm() {
 
     }
+
+    @DeleteMapping("/api/delete/{id}")
+        public void deleteFilmById(@PathVariable String id) {
+            filmRepository.deleteById(Long.valueOf(id));
+    }
 }
