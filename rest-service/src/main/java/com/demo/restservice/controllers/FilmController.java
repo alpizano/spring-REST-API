@@ -5,7 +5,10 @@ import com.demo.restservice.repositories.FilmRepository;
 import com.demo.restservice.services.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,13 +46,19 @@ public class FilmController {
     // Returns JSON response of Film with specific id
     @GetMapping("/api/films/{id}")
     public Film getFilmById(@PathVariable String id) {
+        // Error handling if not found?
         Optional<Film> var = filmRepository.findById(Long.valueOf(id));
         return var.get();
     }
 
-    @PostMapping("/api/")
-    public void insertFilm() {
+    @PostMapping("/api/films")
+    public void insertFilm(@Valid @RequestBody Film film) {
+        Film savedFilm = filmRepository.save(film);
 
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedFilm.getId()).toUri();
     }
 
     @DeleteMapping("/api/delete/{id}")
