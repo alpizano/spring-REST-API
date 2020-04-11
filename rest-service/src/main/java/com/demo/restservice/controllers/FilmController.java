@@ -4,6 +4,7 @@ import com.demo.restservice.domain.Film;
 import com.demo.restservice.repositories.FilmRepository;
 import com.demo.restservice.services.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -52,13 +53,15 @@ public class FilmController {
     }
 
     @PostMapping("/api/films")
-    public void insertFilm(@Valid @RequestBody Film film) {
+    public ResponseEntity<Object> insertFilm(@Valid @RequestBody Film film) {
         Film savedFilm = filmRepository.save(film);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(savedFilm.getId()).toUri();
+
+        return ResponseEntity.created(location).build();
     }
 
     @DeleteMapping("/api/delete/{id}")
