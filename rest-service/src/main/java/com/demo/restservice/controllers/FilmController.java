@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class FilmController {
@@ -31,6 +32,7 @@ public class FilmController {
         return "redirect:/api/films";
     }
 
+    // Returns JSON response List of films
     @GetMapping("/api/films")
     public List<Film> listFilms() {
         // Using CRUD repository override of findAll()
@@ -38,9 +40,12 @@ public class FilmController {
         return filmRepository.findAll();
     }
 
+    // Returns JSON response of Film with specific id
     @GetMapping("/api/films/{id}")
     public Film getFilmById(@PathVariable String id) {
-        
+        Optional<Film> var = filmRepository.findById(Long.valueOf(id));
+        return var.get();
+
     }
 
     @PostMapping("/api/")
