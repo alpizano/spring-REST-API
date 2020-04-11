@@ -13,19 +13,18 @@ import java.util.List;
  */
 @Service
 public class FilmServiceImpl implements FilmService {
+    FilmRepository filmRepository;
 
-    FilmRepository filmsRepository;
-
-
+    // Injects the FilmRepository which extends CrudRepository which gives access to CRUD methods
     @Autowired
-    public FilmServiceImpl(FilmRepository filmsRepository) {
-        this.filmsRepository = filmsRepository;
+    public FilmServiceImpl(FilmRepository filmRepository) {
+        this.filmRepository = filmRepository;
     }
 
     @Override
     public List<Film> listAll() {
         List<Film> films = new ArrayList<>();
-        filmsRepository.findAll().forEach(films::add); //fun with Java 8
+        filmRepository.findAll().forEach(films::add); //fun with Java 8
         return films;
     }
 }
