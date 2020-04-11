@@ -3,10 +3,7 @@ package com.demo.restservice.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /***
  * Entity class
@@ -17,19 +14,22 @@ import javax.persistence.Id;
 @Setter
 @Entity
 public class Film {
-
+    // Final variable throws "might not have been initialized error
     @Id
     // @Id signifies id is primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-    // Final variable throws "might not have been initialized error
     private long id;
+
     private String title;
+
+    // @Lob threw DataException
+    @Column(columnDefinition = "TEXT")
     private String description;
+
     private String director;
     private String producer;
-    private long release_date;
-    private int rt_score;
+    private String release_date;
+    private String rt_score;
 //    private final String people;
 //    private final String species;
 //    private final String locations;
