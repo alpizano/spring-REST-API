@@ -45,7 +45,6 @@ public class FilmController {
     public Film getFilmById(@PathVariable String id) {
         Optional<Film> var = filmRepository.findById(Long.valueOf(id));
         return var.get();
-
     }
 
     @PostMapping("/api/")
