@@ -10,10 +10,8 @@ import javax.persistence.Id;
 
 /***
  * Entity class
- * Should map to Films table
+ * Should map to Film table
  */
-
-
 
 @Getter
 @Setter
