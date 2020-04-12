@@ -31,7 +31,7 @@ public class FilmController {
     }
 
     // Returns JSON response List of films
-    @GetMapping("/api/films")
+    @GetMapping({"/film/list", "/film"})
     public List<Film> listFilms() {
         // Using CRUD repository override of findAll()
        // return filmsService.listAll();
@@ -39,14 +39,14 @@ public class FilmController {
     }
 
     // Returns JSON response of Film with specific id
-    @GetMapping("/api/films/{id}")
+    @GetMapping("/film/show/{id}")
     public Film getFilmById(@PathVariable String id) {
         // Error handling if not found?
         Optional<Film> var = filmRepository.findById(Long.valueOf(id));
         return var.get();
     }
 
-    @PostMapping("/api/films")
+    @PostMapping("/film/new")
     public ResponseEntity<Object> insertFilm(@Valid @RequestBody Film film) {
         Film savedFilm = filmRepository.save(film);
 
@@ -58,7 +58,7 @@ public class FilmController {
         return ResponseEntity.created(location).build();
     }
 
-    @DeleteMapping("/api/delete/{id}")
+    @DeleteMapping("/film/delete/{id}")
         public void deleteFilmById(@PathVariable String id) {
             filmRepository.deleteById(Long.valueOf(id));
     }
