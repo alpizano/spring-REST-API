@@ -2,7 +2,6 @@ package com.demo.restservice.controllers;
 
 import com.demo.restservice.domain.Film;
 import com.demo.restservice.repositories.FilmRepository;
-import com.demo.restservice.services.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,16 +14,9 @@ import java.util.Optional;
 
 @RestController
 public class FilmController {
-    private FilmService filmsService;
     private FilmRepository filmRepository;
 
-    // Setter based dependency injection
-    @Autowired
-    public void setFilmsService(FilmService filmsService) {
-        this.filmsService = filmsService;
-    }
-
-    // Inject the JpaRepository
+    // Inject the JpaRepository via Constructor
     @Autowired
     public FilmController(FilmRepository filmRepository) {
         this.filmRepository = filmRepository;
@@ -46,6 +38,7 @@ public class FilmController {
         return var.get();
     }
 
+    // Post new film JSON object
     @PostMapping("/film/new")
     public ResponseEntity<Object> insertFilm(@Valid @RequestBody Film film) {
         Film savedFilm = filmRepository.save(film);
@@ -58,6 +51,7 @@ public class FilmController {
         return ResponseEntity.created(location).build();
     }
 
+    // Delete film object with specific id
     @DeleteMapping("/film/delete/{id}")
         public void deleteFilmById(@PathVariable String id) {
             filmRepository.deleteById(Long.valueOf(id));
