@@ -30,12 +30,6 @@ public class FilmController {
         this.filmRepository = filmRepository;
     }
 
-
-    @RequestMapping("/")
-    public String redirToList(){
-        return "redirect:/api/films";
-    }
-
     // Returns JSON response List of films
     @GetMapping("/api/films")
     public List<Film> listFilms() {
