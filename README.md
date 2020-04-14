@@ -17,7 +17,9 @@ https://dbeaver.io/download/
    - Make a new database using PSQL, PGAdmin, or DBBeaver
    
    
-3. You will need to edit the `application.properties` file in the src/java/resources directory to your own postgres user, password, and database name credentials.
+3. You will need to edit the `application.properties` file in the `src/main/resources` directory to your own postgres user, password, and database name credentials. 
+
+> You can try removing all the contents of the `application.properties` file and the Spring Boot app should use the in-memory H2 database if you don't feel like setting PostgreSQL up.
 
 
 
