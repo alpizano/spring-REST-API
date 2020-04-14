@@ -1,5 +1,5 @@
 # Spring REST API
-This is a Spring Java REST API that will persist to a PostgreSQL database.
+This is a Spring Java REST API that will persist to a PostgreSQL database. For this means of this small project, the API will be for holding **Film** data, that is with attributes such as id, description, title, rating, author, etc... You can edit the code to fit whatever need you have.
 
 This application will use an embedded Apache Tomcat server. There are many uses for a RESTful API, currently, I have this REST API running as a backend application behind my Apache Server that is serving my portfolio website at http://alpizano.me. To do this similiar setup, you would need to setup a **reverse proxy** to re-route all traffic coming into port 80 (HTTP) to your backend service of your choice.
 
@@ -23,6 +23,17 @@ https://dbeaver.io/download/
 
 
 ## API Endpoints
+> If you would like to try these endpoints live on my server, replace `localhost:8080`, with `alpizano.me`
 
-## curl -X GET http://localhost:8080/films
-returns a list of film objects as JSON response
+## GET http://localhost:8080/film
+curl -X GET http://localhost:8080/film
+   - Returns a list of film objects as JSON response
+   
+## GET http://localhost:8080/film/show/{id}
+curl -X GET http://localhost:8080/film/show/1
+   
+## POST http://localhost:8080/film/new
+curl -X POST --header "Content-Type: application/json" --data '{"title": "boogers","description":"a","director": "b", "producer": "c", "release_date": "d", "rt_score": "e"}' http://alpizano.me/api/film/
+
+## DELETE http://localhost:8080/film/delete/{id}
+curl -X DELETE 
