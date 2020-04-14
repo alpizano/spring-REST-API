@@ -1,7 +1,7 @@
 # Spring REST API
 This is a Spring Java REST API that will persist to a PostgreSQL database.
 
-This application will use an embedded Apache Tomcat server.
+This application will use an embedded Apache Tomcat server. There are many uses for a RESTful API, currently, I have this REST API running as a backend application behind my Apache Server that is serving my portfolio website at http://alpizano.me. To do this similiar setup, you would need to setup a **reverse proxy** to re-route all traffic coming into port 80 (HTTP) to your backend service of your choice.
 
 ## Clone locally
 1. The repo uses a PostgreSQL database, so download and install that first:
@@ -22,6 +22,7 @@ https://dbeaver.io/download/
 > You can try removing all the contents of the `application.properties` file and the Spring Boot app should use the in-memory H2 database if you don't feel like setting PostgreSQL up.
 
 
+## API Endpoints
 
 ## curl -X GET http://localhost:8080/films
 returns a list of film objects as JSON response
